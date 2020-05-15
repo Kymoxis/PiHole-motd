@@ -54,7 +54,7 @@ backup_legal_banner() {
 #Download and Move 10-uname
 custom_10_uname() {
 	echo -e "$info Downloading 10-uname"
-	wget https://raw.githubusercontent.com/MxMarl/PiHoleBanner/master/10-uname 
+	wget https://raw.githubusercontent.com/MxMarl/PiHole-motd/master/10-uname
 	echo -e "$tick Done\n"
 	echo -e "$info Moving Custom Welcome Banner to /etc/update-motd.d/"
 	sudo mv 10-uname /etc/update-motd.d/
@@ -65,7 +65,7 @@ custom_10_uname() {
 #Download and Move legal banner
 legal_ba() {
 	echo -e "$info Downloading issue.net"
-	wget https://raw.githubusercontent.com/MxMarl/PiHoleBanner/master/issue.net 
+	wget https://raw.githubusercontent.com/MxMarl/PiHole-motd/master/issue.net
 	echo -e "$tick Done\n"
 	echo -e "$info Moving Legal Banner to /etc/issue.net"
 	sudo mv issue.net /etc/
