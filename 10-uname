@@ -1,0 +1,67 @@
+#!/bin/sh
+# Title.........:  PiHole-motd
+# Description...:  custom motd - Welcome Banner for the PiHole
+# Author........:  MxMarl
+# Version.......:  1.0
+# Installation..:  see README
+
+
+#style:
+BGreen='\033[1;32m'
+BYellow='\033[1;33m'
+BIBlue='\033[1;94m'
+BIBlack='\033[1;90m' 
+Yellow='\033[0;33m' 
+NC='\e[0m'
+bor='======================================================='
+
+printf "\033c"
+upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+secs=$((${upSeconds}%60))
+mins=$((${upSeconds}/60%60))
+hours=$((${upSeconds}/3600%24))
+days=$((${upSeconds}/86400))
+UPTIME=`printf "%d days, %02dh %02dm %02ds" "$days" "$hours" "$mins" "$secs"`
+
+echo "$(tput setaf 2)
+$BIBlack $bor $NC
+                     $BGreen Welcome back!$NC
+            $BIBlue`uname -srmo`$(tput setaf 1)$NC
+$BIBlack $bor $NC
+$BYellow Versions:$NC
+$Yellow Pihole.....:$NC  `pihole -v | grep Pi-hole | awk {'print $4, $5, $6'}`
+$Yellow AdminLTE...:$NC  `pihole -v | grep AdminLTE | awk {'print $4, $5, $6'}`
+$Yellow FTL........:$NC  `pihole -v | grep FTL | awk {'print $4, $5, $6'}`
+$BIBlack $bor $NC
+$BYellow Machine:$NC
+$Yellow Time.......:$NC  `date +"%A, %e %B %Y, %r"` 
+$Yellow Uptime.....:$NC  ${UPTIME}     
+$Yellow Temperatur.:$NC  `/opt/vc/bin/vcgencmd measure_temp | cut -c "6-9"`  C 
+$Yellow Processes..:$NC  `ps ax | wc -l | tr -d " "` 
+$Yellow Memory.....:$NC  `free -m | awk 'NR==2 {printf "Used: %sMB of %sMB",$3,$2; }'` 
+$Yellow Disk.......:$NC  `df -h | awk 'NR==2 {printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4;}'`
+$BIBlack $bor $NC
+$BYellow Last Login:$NC
+$Yellow IP.........:$NC  `last -i $USER | grep -v 'still logged' | head -1 | awk {'print $3'}`
+$Yellow Date/Time..:$NC  `last -i $USER | grep -v 'still logged' | head -1 | awk {'print $4, $5, $6, $7'}`
+$BIBlack $bor $NC
+$BYellow Commands:$NC
+ raspi-config     (Configure Raspberry)
+ pihole -h        (Show commands)
+ pihole -up       (Update PiHole)
+ pihole -r        (Repair PiHole)
+ pihole -g        (Update Blocklist)
+$BIBlack $bor $NC 
+`echo "\e[0m"` 
+$(tput sgr0)"
+
+
+
+
+
+
+
+
+
+
+
