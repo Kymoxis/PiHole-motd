@@ -51,6 +51,7 @@ $BYellow Commands:$NC
  pihole -up       (Update PiHole)
  pihole -r        (Repair PiHole)
  pihole -g        (Update Blocklist)
+ pihole -a -p     (Change Admin-Page passwd)
 $BIBlack $bor $NC 
 `echo "\e[0m"` 
 $(tput sgr0)"
