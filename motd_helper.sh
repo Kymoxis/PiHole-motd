@@ -30,7 +30,7 @@ restart_sshd(){
 #Backup 10-uname
 backup_10_uname() {
 	echo -e "$info Making backup of 10-uname to /etc/update-motd.d/"
-	sudo cp -r /etc/update-motd.d/10-uname /etc/update-motd.d/backup.$date.10-uname 
+	sudo cp -r /etc/update-motd.d/10-uname /etc/backup.$date.10-uname 
 	echo -e "$tick Done\n"
 	}
 	
@@ -116,8 +116,8 @@ do
 		backup_10_uname
 		backup_sshd_config
 		backup_legal_banner
-		sudo rm -r /etc/motd
-		sudo rm -r /etc/issue.net
+		sudo rm /etc/motd
+		sudo rm /etc/issue.net
 		custom_10_uname
 		edit_sshd_Config_uname
 		legal_ba
