@@ -5,7 +5,7 @@ You can choose what you want to have
 
 ## Info
 All of your clean files will be backed up:
-- Old 10-uname in:        /etc/update-motd.d/backup.$date.10-uname
+- Old 10-uname in:        /etc/backup.$date.10-uname
 - Old motd in:            /etc/backup.$date.motd
 - Old sshd_config in:     /etc/ssh/backup.$date.sshd_config 
 - Old issue.net in:       /etc/backup.$date.issue.net
