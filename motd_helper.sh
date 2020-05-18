@@ -29,7 +29,7 @@ restart_sshd(){
 
 #Backup 10-uname
 backup_10_uname() {
-	echo -e "$info Making backup of 10-uname to /etc/update-motd.d/"
+	echo -e "$info Making backup of 10-uname to /etc/"
 	sudo cp -r /etc/update-motd.d/10-uname /etc/backup.$date.10-uname 
 	echo -e "$tick Done\n"
 	}
