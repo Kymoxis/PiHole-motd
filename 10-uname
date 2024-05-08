@@ -30,7 +30,7 @@ $BIBlack $bor $NC
 $BIBlack $bor $NC
 $BYellow Versions:$NC
 $Yellow Pihole.....:$NC  `pihole -v | grep Pi-hole | awk {'print $4, $5, $6'}`
-$Yellow AdminLTE...:$NC  `pihole -v | grep AdminLTE | awk {'print $4, $5, $6'}`
+$Yellow Web........:$NC  `pihole -v | grep web | awk {'print $4, $5, $6'}`
 $Yellow FTL........:$NC  `pihole -v | grep FTL | awk {'print $4, $5, $6'}`
 $BIBlack $bor $NC
 $BYellow Machine:$NC
